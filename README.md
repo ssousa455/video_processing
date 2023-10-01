@@ -1,40 +1,40 @@
-# Video Processing Scripts
+# Processamento de Vídeo em Lote
 
-Este repositório contém scripts para processar vídeos de maneiras diferentes, dependendo da escolha do usuário. Há scripts tanto em Batch quanto em Python que oferecem as seguintes funcionalidades:
+Este script permite que você processe vídeos em lote de acordo com três opções:
 
-1. Acelerar vídeos em 2x.
-2. Compactar vídeos para 720p com crf 25 usando libx265.
-3. Acelerar vídeos em 2x e compactar para 720p com crf 25 usando libx265.
+1. Acelerar o vídeo
+2. Converter o vídeo para 720p (se a resolução for maior que 720p) e aplicar compressão
+3. Acelerar o vídeo, converter para 720p (se a resolução for maior que 720p) e aplicar compressão
 
 ## Pré-requisitos
 
-Para o script Python:
-- Python 3.x instalado.
-- Biblioteca moviepy: `pip install moviepy`.
+- Python 3.x
+- FFmpeg
 
-Para o script Batch:
-- ffmpeg instalado e configurado no PATH do sistema.
+## Como instalar o FFmpeg
 
-## Como usar
+1. Baixe o FFmpeg do [site oficial](https://www.ffmpeg.org/download.html).
+2. Extraia o conteúdo do arquivo zip para um diretório de sua escolha, por exemplo, `C:\path\ffmpeg`.
+3. Adicione `C:\path\ffmpeg\bin` às variáveis de ambiente do sistema.
 
-### Script Python
+## Como executar o script
 
-1. Salve o script `video_processing.py` em seu computador.
-2. Abra um terminal ou prompt de comando.
-3. Navegue até o diretório onde você salvou `video_processing.py`.
-4. Execute o script com o comando `python video_processing.py`.
-5. O script solicitará que você escolha uma opção. Digite `1`, `2`, ou `3` e pressione Enter para continuar.
+1. Coloque o script `video_processing.py` na pasta contendo os vídeos que você deseja processar.
+2. Abra um prompt de comando ou terminal e navegue até a pasta contendo o script e os vídeos.
+3. Execute o script com o comando `python video_processing.py`.
+4. Selecione a opção desejada (1, 2 ou 3) conforme as instruções exibidas no prompt de comando ou terminal.
 
-### Script Batch
+## Bibliotecas Python necessárias
 
-1. Salve o script `video_processing.bat` em seu computador.
-2. Clique duas vezes no script para executá-lo ou abra um prompt de comando e navegue até o diretório onde você salvou `video_processing.bat`, e então digite `video_processing.bat` e pressione Enter.
-3. O script solicitará que você escolha uma opção. Digite `1`, `2`, ou `3` e pressione Enter para continuar.
+Instale as bibliotecas Python necessárias com o comando:
 
-## Funcionalidades
 
-- **Acelerar Vídeos**: A opção 1 acelera todos os vídeos no diretório atual e subdiretórios em 2x.
-- **Compactar Vídeos**: A opção 2 compacta todos os vídeos no diretório atual e subdiretórios para 720p usando libx265.
-- **Acelerar e Compactar Vídeos**: A opção 3 acelera e compacta todos os vídeos no diretório atual e subdiretórios em 2x e para 720p usando libx265.
+\`bash
+pip install ffmpeg-python 
+\`
 
-Ao final do processamento, o script fornecerá estatísticas sobre quantos arquivos foram processados, quanto tempo levou e em qual diretório o processo foi iniciado.
+## Observações
+
+    O script processará todos os vídeos na pasta atual e em suas subpastas.
+    O script cria novos arquivos de vídeo com sufixos específicos (_accelerated, _cvt720p, _accelerated_cvt720p) para indicar as operações realizadas em cada vídeo.
+    Certifique-se de ter espaço suficiente no disco para os novos arquivos de vídeo gerados.
